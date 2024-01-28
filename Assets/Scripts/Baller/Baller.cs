@@ -5,8 +5,8 @@ namespace Baller
 {
     public class Baller : MonoBehaviour
     {
-        [SerializeField]
         private Animator _animator;
+        private BallHandler _ballHandler;
 
         private Dictionary<BallerStates,IBallerState> _activeStates = new Dictionary<BallerStates, IBallerState>();
 
@@ -14,6 +14,7 @@ namespace Baller
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             BallerInputNotifications.StartJumpAction += OnStartJump;
             OnIdle();
         }
@@ -45,6 +46,12 @@ namespace Baller
             AddState(BallerStates.Idle, new IdleState(this));
             BallerInputNotifications.MoveAction += OnMove;
             RemoveState(BallerStates.Move);
+        }
+
+        public void OnPickUpBall(Ball ball)
+        {
+            _ballHandler = new BallHandler(ball);
+            AddState(BallerStates.Dribble, new DribbleState(this, _ballHandler));
         }
 
         public void AddState(BallerStates newStateType, IBallerState newStateInstance)

@@ -5,6 +5,7 @@ namespace Baller
     {
         Idle,
         Move,
-        Jump
+        Jump,
+        Dribble
     }
 }
