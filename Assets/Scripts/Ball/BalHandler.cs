@@ -6,18 +6,26 @@ namespace Baller
     {
         private readonly Ball _ball;
         private readonly Rigidbody _ballRigidbody;
+        private readonly Transform _hand;
 
-        public BallHandler(Ball ball)
+        public BallHandler(Ball ball, Transform handHandler)
         {
             _ball = ball;
+            _hand = handHandler;
             _ballRigidbody = _ball.GetComponent<Rigidbody>();
             _ballRigidbody.isKinematic = false;
         }
 
-        public void BounceBall(Vector3 throwForce, float playerSpeed)
+        public void BounceBall(Vector3 force)
         {
-            Vector3 adjustedForce = throwForce * playerSpeed;
-            _ballRigidbody.AddForce(adjustedForce, ForceMode.Impulse);
+            _ballRigidbody.AddForce(force, ForceMode.Impulse);
         }
+
+        public void UpdateToHand()
+        {
+            _ball.transform.position = _hand.position;
+        }
+
+
     }
 }

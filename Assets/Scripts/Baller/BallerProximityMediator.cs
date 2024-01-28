@@ -23,8 +23,9 @@ namespace Baller
                 foreach (Baller baller in _ballers)
                 {
                     if (IsPlayerCloseEnough(baller) && IsBallerNearestPlayer(baller))
-                    {
-                        baller.OnPickUpBall(_ball);
+                    {                     
+                        baller.PickUpBall(_ball);
+                        IsBallFree = false;
                     }
                 }
             }
@@ -35,7 +36,13 @@ namespace Baller
         public bool IsBallerNearestPlayer(Baller baller)
         {           
             Baller nearestPlayer = GetNearestPlayer();
-            return nearestPlayer == baller;
+
+            if (nearestPlayer == baller)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private Baller GetNearestPlayer()
@@ -61,7 +68,12 @@ namespace Baller
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, _ball.transform.position);
 
-            return distanceToPlayer <= PLAYER_PROXIMITY_THRESHOLD;
+            if (distanceToPlayer <= PLAYER_PROXIMITY_THRESHOLD)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

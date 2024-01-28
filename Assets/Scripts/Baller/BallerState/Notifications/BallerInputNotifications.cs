@@ -9,5 +9,7 @@ namespace Baller
         public static Action EndJumpAction = delegate { };
                
         public static Action<bool> SprintAction = delegate { };
+
+        public static Action StartDribbleAction = delegate { };
     }
 }

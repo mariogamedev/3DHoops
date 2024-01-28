@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,12 +6,16 @@ namespace Baller
 {
     public class Baller : MonoBehaviour
     {
+        [SerializeField]
+        private Transform _handDribble;
+
         private Animator _animator;
         private BallHandler _ballHandler;
 
         private Dictionary<BallerStates,IBallerState> _activeStates = new Dictionary<BallerStates, IBallerState>();
 
         public Animator Animator => _animator;
+        public Vector3 HandPosition { get { return _handDribble.position; } }
 
         private void Awake()
         {
@@ -21,7 +26,6 @@ namespace Baller
 
         private void OnStartJump()
         {
-            BallerInputNotifications.EndJumpAction += OnEndJump;
             BallerInputNotifications.StartJumpAction -= OnStartJump;
             AddState(BallerStates.Jump, new FreeJumpState(this));
         }
@@ -48,14 +52,28 @@ namespace Baller
             RemoveState(BallerStates.Move);
         }
 
-        public void OnPickUpBall(Ball ball)
+        public void PickUpBall(Ball ball)
         {
-            _ballHandler = new BallHandler(ball);
+            _ballHandler = new BallHandler(ball, _handDribble);
+            BallerInputNotifications.StartDribbleAction += OnDribble;
+            AddState(BallerStates.PickUpBall, new PickUpBallState(this, ball));
+        }
+
+        private void OnDribble()
+        {
+            StartCoroutine(OnDribbleDelay());
+        }
+        
+        private IEnumerator OnDribbleDelay()
+        {
+            yield return new WaitForEndOfFrame();
             AddState(BallerStates.Dribble, new DribbleState(this, _ballHandler));
+            RemoveState(BallerStates.PickUpBall);
         }
 
         public void AddState(BallerStates newStateType, IBallerState newStateInstance)
         {
+            Debug.Log("Adding state: " + newStateType);
             if (!_activeStates.ContainsKey(newStateType))
             {
                 _activeStates.Add(newStateType, newStateInstance);
@@ -65,6 +83,7 @@ namespace Baller
 
         public void RemoveState(BallerStates stateToRemove)
         {
+            Debug.Log("Removing state: " + stateToRemove);
             if (_activeStates.ContainsKey(stateToRemove))
             {
                 _activeStates[stateToRemove].ExitState();
@@ -77,6 +96,14 @@ namespace Baller
             foreach (IBallerState state in _activeStates.Values)
             {
                 state.UpdateState();
+            }
+        }
+
+        void FixedUpdate()
+        {
+            foreach (IBallerState state in _activeStates.Values)
+            {
+                state.FixedUpdateState();
             }
         }
 

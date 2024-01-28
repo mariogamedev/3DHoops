@@ -6,6 +6,7 @@ namespace Baller
         Idle,
         Move,
         Jump,
+        PickUpBall,
         Dribble
     }
 }

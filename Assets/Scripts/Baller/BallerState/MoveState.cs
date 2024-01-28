@@ -45,7 +45,6 @@ namespace Baller
         {
             _inputMagnitude = inputMagnitude;
             _animationBlend = animationBlend;
-            Baller.Animator.SetFloat(AnimationTag, _animationBlend);
             Baller.Animator.SetFloat(SECONDARY_ANIMATION_TAG, _inputMagnitude);
         }
 

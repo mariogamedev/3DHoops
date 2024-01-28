@@ -33,6 +33,11 @@ namespace Baller
             Baller.Animator.SetBool(AnimationTag, false);
         }
 
+        public virtual void FixedUpdateState()
+        {
+
+        }
+
         public abstract void UpdateState();      
         
     }

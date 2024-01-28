@@ -6,6 +6,7 @@ namespace Baller
         public BallerStates BallerState { get; }
         void EnterState();
         void UpdateState();
+        void FixedUpdateState();
         void ExitState();
     }
 }
