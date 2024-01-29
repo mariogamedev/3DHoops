@@ -8,6 +8,8 @@ namespace Baller
     {
         [SerializeField]
         private Transform _handDribble;
+        [SerializeField] 
+        private int _id;
 
         private Animator _animator;
         private BallHandler _ballHandler;
@@ -15,6 +17,7 @@ namespace Baller
         private Dictionary<BallerStates,IBallerState> _activeStates = new Dictionary<BallerStates, IBallerState>();
 
         public Animator Animator => _animator;
+        public int ID => _id;
         public Vector3 HandPosition { get { return _handDribble.position; } }
 
         private void Awake()

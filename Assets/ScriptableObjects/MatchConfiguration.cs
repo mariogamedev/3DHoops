@@ -15,6 +15,11 @@ namespace Baller
         [SerializeField]
         private Sprite[] _ballImages;
 
+        [SerializeField]
+        private Baller[] _availableBallers;
+        [SerializeField]
+        private Ball[] _availableBalls;
+
         public List<BallerSelector> CreateBallers()
         {
             List<BallerSelector> ballers = new List<BallerSelector>();
@@ -43,6 +48,32 @@ namespace Baller
             }
 
             return balls;
+        }
+
+        public Baller LoadBaller(int ballerID)
+        {
+            foreach(Baller baller in _availableBallers)
+            {
+                if (baller.ID == ballerID)
+                {
+                    return baller;
+                }
+            }
+
+            return new Baller();
+        }
+
+        public Ball LoadBall(int ballID)
+        {
+            foreach (Ball ball in _availableBalls)
+            {
+                if (ball.ID == ballID)
+                {
+                    return ball;
+                }
+            }
+
+            return new Ball();
         }
     }
 }

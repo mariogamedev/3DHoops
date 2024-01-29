@@ -4,7 +4,12 @@ namespace Baller
 {
     public class Ball : MonoBehaviour
     {
+        [SerializeField]
+        private int _id;
+
         private Rigidbody _rigidbody;
+
+        public int ID => _id;
 
         private void Start()
         {

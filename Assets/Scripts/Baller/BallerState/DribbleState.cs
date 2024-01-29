@@ -6,6 +6,7 @@ namespace Baller
     {
         private const string SECONDARY_ANIMATION_TAG = "DribbleSpeed";
         private const float WALK_SPEED = 1.5f;
+        private const float IDLE_SPEED = 2f;
         private const float SPRINT_SPEED = 2.5f;
         private const float SPEED_CHANGE_RATE = 2.0f;
         public const float BOUNCE_FORCE = 0.5f;
@@ -35,15 +36,11 @@ namespace Baller
             Baller.Animator.SetFloat(SECONDARY_ANIMATION_TAG, _animationBlend);
             _ballHandler.UpdateToHand();
         }
-        int uno = 0;
+
         public override void FixedUpdateState()
         {
             base.FixedUpdateState();
-            if (uno == 0)
-            {
-                _ballHandler.BounceBall(Vector3.up * BOUNCE_FORCE);
-                uno = 1;
-            }
+            //_ballHandler.BounceBall(Vector3.up * BOUNCE_FORCE);
         }
 
         public override void ExitState()
@@ -55,14 +52,18 @@ namespace Baller
 
         private void OnUpdateInputMove(float inputMagnitude, float animationBlend)
         {
-            if (animationBlend < SPEED_CHANGE_RATE)
+            if (animationBlend == 0)
+            {
+                _animationBlend = IDLE_SPEED;
+            }
+            else if (animationBlend < SPEED_CHANGE_RATE)
             {
                 _animationBlend = WALK_SPEED;
             }
             else if (animationBlend > SPEED_CHANGE_RATE)
             {
                 _animationBlend = SPRINT_SPEED;
-            }
+            }            
         }
 
         private void OnSprint(bool inputSprint)
