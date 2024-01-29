@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e92f8ad0b9e70246a6e24a9808ae6f0, type: 3}
+  m_Name: MatchConfiguration
+  m_EditorClassIdentifier: 
+  _ballerSelectorPrefab: {fileID: -9012656136360242612, guid: a682031f56d92464c8e90316050316d2, type: 3}
+  _ballSelectorPrefab: {fileID: 2466882836139077397, guid: ef9ca0cdf710e744caaefc007f7be2e3, type: 3}
+  _ballerImages:
+  - {fileID: 21300000, guid: deba9ef77e2518641b2cb4ad1bce0618, type: 3}
+  - {fileID: 21300000, guid: f19a600889d18e846942d0c792adde82, type: 3}
+  _ballImages:
+  - {fileID: 21300000, guid: c510bd1d085431c49889719ea74de5e3, type: 3}
+  - {fileID: 21300000, guid: fbc833d719616aa40a06ca870871a49b, type: 3}
