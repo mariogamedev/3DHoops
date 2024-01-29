@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Baller
 {
-    [CreateAssetMenu(fileName = "MatchConfiguration", menuName = "Match", order = 0)]
+    [CreateAssetMenu(fileName = "MatchConfiguration", menuName = "Match/General", order = 0)]
     public class MatchConfiguration : ScriptableObject
     {
         [SerializeField]

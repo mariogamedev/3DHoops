@@ -1,4 +1,5 @@
 using MVC;
+using UnityEngine.SceneManagement;
 
 namespace Baller
 {
@@ -14,6 +15,7 @@ namespace Baller
         protected override void Execute(MatchConfigurationData selectedConfiguration)
         {
             _matchConfigurationModel.SelectedConfiguration = selectedConfiguration;
+            SceneManager.LoadScene("Match");
         }
     }
 }

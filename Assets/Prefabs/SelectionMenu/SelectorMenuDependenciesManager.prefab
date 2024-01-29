@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6123301708341500206, guid: 638c5db3900b2044c9aa3713bb12f84a, type: 3}
       propertyPath: m_Name
-      value: DependenciesManager
+      value: SelectorMenuDependenciesManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7143631600452507636, guid: 638c5db3900b2044c9aa3713bb12f84a, type: 3}
+      propertyPath: _installer
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fc94a85b7b622d43848a512a4549662, type: 2}
     - target: {fileID: 9214545713259406378, guid: 638c5db3900b2044c9aa3713bb12f84a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

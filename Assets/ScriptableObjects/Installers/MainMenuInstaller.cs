@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Baller
 {
-    [CreateAssetMenu(fileName = "SelectorMenuInstaller", menuName = "Installers/Create SelectorMenu Installer")]
+    [CreateAssetMenu(fileName = "MainMenuInstaller", menuName = "Installers/Create MainMenu Installer")]
     public class MainMenuInstaller : Installer
     {
         public override void Install()
