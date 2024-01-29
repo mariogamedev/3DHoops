@@ -32,6 +32,7 @@ namespace Baller
         {
             FillCharactersSelector(_matchConfiguration.CreateBallers());
             FillBallsSelector(_matchConfiguration.CreateBalls());
+            EvaluateGameButtonVisibility();
         }
 
         private void FillCharactersSelector(List<BallerSelector> ballersSelectorData)
@@ -60,6 +61,7 @@ namespace Baller
         {
             _selectedBallerId = selectedBallerId;
             StartCoroutine(DisableNonSelectedBallers());
+            EvaluateGameButtonVisibility();
         }
 
         private IEnumerator DisableNonSelectedBallers()
@@ -75,6 +77,7 @@ namespace Baller
         {
             _selectedBallId = selectedBallId;
             StartCoroutine(DisableNonSelectedBalls());
+            EvaluateGameButtonVisibility();
         }
 
         private IEnumerator DisableNonSelectedBalls()
@@ -83,6 +86,18 @@ namespace Baller
             foreach (BallSelector ball in _ballsSelector)
             {
                 ball.gameObject.SetActive(ball.ID != _selectedBallId);
+            }
+        }
+
+        private void EvaluateGameButtonVisibility()
+        {
+            if (_selectedBallerId != -1 && _selectedBallId != -1)
+            {
+                _start.gameObject.SetActive(true);
+            }
+            else
+            {
+                _start.gameObject.SetActive(false);
             }
         }
 
