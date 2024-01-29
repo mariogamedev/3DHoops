@@ -78,6 +78,11 @@ namespace Baller
             AddState(BallerStates.PickUpBall, new PickUpBallState(this, ball));
         }
 
+        public void FaultDropBall()
+        {
+            RemoveState(BallerStates.Dribble);
+        }
+
         private void OnDribble()
         {
             StartCoroutine(OnDribbleDelay());
@@ -92,7 +97,6 @@ namespace Baller
 
         public void AddState(BallerStates newStateType, IBallerState newStateInstance)
         {
-            Debug.Log("Adding state: " + newStateType);
             if (!_activeStates.ContainsKey(newStateType))
             {
                 _activeStates.Add(newStateType, newStateInstance);
@@ -102,7 +106,6 @@ namespace Baller
 
         public void RemoveState(BallerStates stateToRemove)
         {
-            Debug.Log("Removing state: " + stateToRemove);
             if (_activeStates.ContainsKey(stateToRemove))
             {
                 _activeStates[stateToRemove].ExitState();

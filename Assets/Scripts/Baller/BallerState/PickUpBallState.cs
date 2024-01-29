@@ -21,6 +21,7 @@ namespace Baller
         public override void EnterState()
         {
             base.EnterState();
+            MatchEventNotifications.PickUpBallAction.Invoke();
             Reset();
         }
 
@@ -49,7 +50,7 @@ namespace Baller
 
         public override void ExitState()
         {
-            base.ExitState();
+            base.ExitState();              
             _ball.DisableKinematic();
         }
     }

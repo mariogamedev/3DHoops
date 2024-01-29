@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Baller
@@ -29,6 +30,7 @@ namespace Baller
             Baller.Animator.SetFloat(SECONDARY_ANIMATION_TAG, _animationBlend);
             BallerInputNotifications.SprintAction += OnSprint;
             BallerInputNotifications.MoveAction += OnUpdateInputMove;
+            MatchEventNotifications.ShootClockExhaustedAction += OnShootClockExhausted;
         }
 
         public override void UpdateState()
@@ -48,6 +50,7 @@ namespace Baller
             base.ExitState();
             BallerInputNotifications.SprintAction -= OnSprint;
             BallerInputNotifications.MoveAction -= OnUpdateInputMove;
+            MatchEventNotifications.ShootClockExhaustedAction -= OnShootClockExhausted;
         }
 
         private void OnUpdateInputMove(float inputMagnitude, float animationBlend)
@@ -71,6 +74,11 @@ namespace Baller
             float targetSpeed = inputSprint ? SPRINT_SPEED : WALK_SPEED;
 
             _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SPEED_CHANGE_RATE);
+        }
+
+        private void OnShootClockExhausted()
+        {
+            Baller.FaultDropBall();
         }
     }
 }
