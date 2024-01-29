@@ -114,7 +114,6 @@ using UnityEngine.InputSystem;
             }
         }
 
-
         private void Awake()
         {
             // get a reference to our main camera
@@ -158,9 +157,15 @@ using UnityEngine.InputSystem;
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
                 transform.position.z);
+            bool previousGrounded = Grounded;
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
-        }
+                QueryTriggerInteraction.Ignore);     
+            
+            if (Grounded && !previousGrounded)
+            {
+                BallerInputNotifications.LandAction.Invoke();
+            }
+    }
 
         private void CameraRotation()
         {
@@ -252,9 +257,7 @@ using UnityEngine.InputSystem;
             {
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
-
-                BallerInputNotifications.EndJumpAction.Invoke();
-
+                
                 // stop our velocity dropping infinitely when grounded
                 if (_verticalVelocity < 0.0f)
                 {

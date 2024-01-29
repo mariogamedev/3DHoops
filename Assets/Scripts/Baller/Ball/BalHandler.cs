@@ -13,7 +13,7 @@ namespace Baller
             _ball = ball;
             _hand = handHandler;
             _ballRigidbody = _ball.GetComponent<Rigidbody>();
-            _ballRigidbody.isKinematic = false;
+            _ball.DisableKinematic();
         }
 
         public void BounceBall(Vector3 force)
@@ -26,6 +26,10 @@ namespace Baller
             _ball.transform.position = _hand.position;
         }
 
-
+        public void Shoot(float force)
+        {
+            Vector3 throwDirection = Vector3.up;
+            _ballRigidbody.AddForce(throwDirection * force, ForceMode.Impulse);
+        }
     }
 }

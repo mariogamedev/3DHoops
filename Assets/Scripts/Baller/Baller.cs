@@ -20,20 +20,36 @@ namespace Baller
         private void Awake()
         {
             _animator = GetComponent<Animator>();
-            BallerInputNotifications.StartJumpAction += OnStartJump;
+            BallerInputNotifications.StartJumpAction += OnStartFreeJump;
             OnIdle();
         }
 
-        private void OnStartJump()
+        private void OnStartFreeJump()
         {
-            BallerInputNotifications.StartJumpAction -= OnStartJump;
+            BallerInputNotifications.StartJumpAction -= OnStartFreeJump;
+            BallerInputNotifications.LandAction += OnLand;
             AddState(BallerStates.Jump, new FreeJumpState(this));
         }
 
-        private void OnEndJump()
+        private void OnStartJumpShoot()
         {
-            BallerInputNotifications.EndJumpAction -= OnEndJump;
-            BallerInputNotifications.StartJumpAction += OnStartJump;
+            BallerInputNotifications.StartJumpAction -= OnStartJumpShoot;
+            RemoveState(BallerStates.Dribble);
+            AddState(BallerStates.Jump, new ShootState(this, _ballHandler));
+        }
+
+        private void OnLand()
+        {
+            BallerInputNotifications.LandAction -= OnLand;
+
+            if (_activeStates.ContainsKey(BallerStates.Dribble))
+            {
+                BallerInputNotifications.StartJumpAction += OnStartJumpShoot;
+            }
+            else
+            {
+                BallerInputNotifications.StartJumpAction += OnStartFreeJump;
+            }
 
             RemoveState(BallerStates.Jump);
         }
