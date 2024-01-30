@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Match
+  m_EditorClassIdentifier: 
+  m_GroupName: Match
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4512a2e7ab32dd4479d978779827d56d
+  m_SerializeEntries:
+  - m_GUID: c1e533b9e8f802048a6d6df69cbc57ae
+    m_Address: Assets/ScriptableObjects/MatchAudiosConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bda2ed3f926d5f4bbec9463d861306f
+    m_Address: Assets/ScriptableObjects/MatchConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8218e9f53765aa64e8f6d42f13769f1b
+    m_Address: Assets/ScriptableObjects/ShootClockConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e6cf7da218ba4a41b1325cd6fdd27d0
+    m_Address: Assets/Art/ShootHoopKit/RingBoard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17e0db69e7f87104b9a827744a94ec50
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/pole.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5fcd2880744bc94cb622dc086d904cf
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/board.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab5bcefc5b0b0a048ad0509457656cde
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/redMetal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59c94903ef97fec43b409f697ae2a276
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/nets/net3color.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31c2d1dcf6c9bd442b6654cd94ab960a
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/balls/ballA.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4994c5e4259440948ae1a4a54e826bd2
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/balls/ballFade.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb179964d2925e94cbb730685ead9a2c
+    m_Address: Assets/Art/ShootHoopKit/Graphics/Materials/balls/ballB.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd45d5dc5c86d54419c5c5878dddb0bd
+    m_Address: Assets/Prefabs/Match/MatchUICanvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dba53e26e2eb791489add085717e0a7c
+    m_Address: Assets/Prefabs/Match/Court.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Match
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 05bf5aaaf35443d4f86ac1ff956fea43, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bc0dbd43438c3e2498a2c010e2abda6b, type: 2}
+    - {fileID: 11400000, guid: b94e53eebb6b77043810e688e784df6f, type: 2}
