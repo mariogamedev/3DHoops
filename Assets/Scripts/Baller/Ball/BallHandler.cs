@@ -28,7 +28,7 @@ namespace Baller
 
         public void Shoot(float force)
         {
-            Vector3 throwDirection = Vector3.up;
+            Vector3 throwDirection = new Vector3(0, Vector3.up.y, Vector3.forward.z);
             _ballRigidbody.AddForce(throwDirection * force, ForceMode.Impulse);
         }
     }

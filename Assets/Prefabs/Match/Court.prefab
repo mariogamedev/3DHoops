@@ -301,6 +301,7 @@ MonoBehaviour:
   _ballerSpawnAnchor: {fileID: 2852969716780670935}
   _ballSpawnAnchor: {fileID: 7504138537281073549}
   _virtualCamera: {fileID: 0}
+  _ringBoardAnchor: {fileID: 4713178445696288701}
 --- !u!1 &7633736116150229087
 GameObject:
   m_ObjectHideFlags: 0

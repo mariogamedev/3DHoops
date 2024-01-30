@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 namespace Baller
 {
     public class ShootState : BaseBallerState
@@ -14,7 +16,9 @@ namespace Baller
 
         public override void EnterState()
         {
-            _ballHandler.Shoot(5f);
+            base.EnterState();
+            MatchEventNotifications.JumpShootAction.Invoke();
+            _ballHandler.Shoot(1f);
         }
 
         public override void UpdateState()

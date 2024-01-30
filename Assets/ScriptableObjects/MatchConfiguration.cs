@@ -20,6 +20,11 @@ namespace Baller
         [SerializeField]
         private Ball[] _availableBalls;
 
+        [SerializeField]
+        private float _threePointDistance;
+
+        public float ThreePointDistance => _threePointDistance;
+
         public List<BallerSelector> CreateBallers()
         {
             List<BallerSelector> ballers = new List<BallerSelector>();

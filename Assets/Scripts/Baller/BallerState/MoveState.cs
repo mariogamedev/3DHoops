@@ -43,6 +43,11 @@ namespace Baller
 
         private void OnUpdateInputMove(float inputMagnitude, float animationBlend)
         {
+            if (Baller.Animator == null)
+            {
+                Baller.RemoveState(BallerStates.Move);
+                return;
+            }
             _inputMagnitude = inputMagnitude;
             _animationBlend = animationBlend;
             Baller.Animator.SetFloat(SECONDARY_ANIMATION_TAG, _inputMagnitude);

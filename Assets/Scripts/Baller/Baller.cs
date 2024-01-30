@@ -59,6 +59,11 @@ namespace Baller
 
         private void OnMove(float inputMagnitude, float animationBlend)
         {
+            if (_animator == null)
+            {
+                return;
+            }
+
             AddState(BallerStates.Move, new MoveState(this, inputMagnitude, animationBlend));
             BallerInputNotifications.MoveAction -= OnMove;
             RemoveState(BallerStates.Idle);
@@ -85,6 +90,8 @@ namespace Baller
 
         private void OnDribble()
         {
+            BallerInputNotifications.StartJumpAction -= OnStartFreeJump;
+            BallerInputNotifications.StartJumpAction += OnStartJumpShoot;
             StartCoroutine(OnDribbleDelay());
         }
         
@@ -131,6 +138,7 @@ namespace Baller
 
         void OnDestroy()
         {
+            _activeStates.Clear();
             RemoveBallerInputListeners();
         }
 

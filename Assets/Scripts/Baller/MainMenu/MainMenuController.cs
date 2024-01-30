@@ -1,13 +1,20 @@
+using Addresables;
 using MVC;
-using UnityEngine.SceneManagement;
 
 namespace Baller
 {
     public class MainMenuController : Controller
     {
+        AddressableSceneLoader _addressableSceneLoader;
+
+        public MainMenuController()
+        {
+            _addressableSceneLoader = new AddressableSceneLoader();
+        }
+
         protected override void Execute()
         {
-            SceneManager.LoadScene("SelectionMenu");
+            _addressableSceneLoader.LoadSceneAsync("SelectionMenu");
         }
     }
 }

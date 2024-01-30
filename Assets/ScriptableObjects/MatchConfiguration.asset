@@ -26,3 +26,4 @@ MonoBehaviour:
   _availableBalls:
   - {fileID: 397738069650859365, guid: f13ef45a14d378049a882a35a9588d8c, type: 3}
   - {fileID: 397738069650859365, guid: 2d949959f6b8923469365061f5bf9e50, type: 3}
+  _threePointDistance: 11

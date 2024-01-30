@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7e31f3bce75cb4683dc48d64df8b19, type: 3}
   m_Name: ShootClockConfiguration
   m_EditorClassIdentifier: 
-  _countdownStartTime: 5
+  _countdownStartTime: 24
   _timerSprite: {fileID: 21300000, guid: 810e05efa1059ec40ba4d5ac431c74cc, type: 3}
