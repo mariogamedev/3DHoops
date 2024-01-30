@@ -66,10 +66,19 @@ namespace Baller
 
         private IEnumerator DisableNonSelectedBallers()
         {
-            yield return new WaitForSeconds(0.5f);
             foreach (BallerSelector baller in _ballersSelector)
             {
-                baller.gameObject.SetActive(baller.ID != _selectedBallerId);
+                if (baller.ID != _selectedBallerId)
+                {
+                    baller.DisableInteraction();
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            foreach (BallerSelector baller in _ballersSelector)
+            {
+                baller.gameObject.SetActive(baller.ID == _selectedBallerId);
             }
         }
 
@@ -82,10 +91,19 @@ namespace Baller
 
         private IEnumerator DisableNonSelectedBalls()
         {
-            yield return new WaitForSeconds(0.5f);
             foreach (BallSelector ball in _ballsSelector)
             {
-                ball.gameObject.SetActive(ball.ID != _selectedBallId);
+                if (ball.ID != _selectedBallId)
+                {
+                    ball.DisableInteraction();
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            foreach (BallSelector ball in _ballsSelector)
+            {
+                ball.gameObject.SetActive(ball.ID == _selectedBallId);
             }
         }
 

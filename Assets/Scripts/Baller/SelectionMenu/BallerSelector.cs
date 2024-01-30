@@ -26,5 +26,15 @@ namespace Baller
         {
             SelectedAction.Invoke(ID);
         }
+
+        public void DisableInteraction()
+        {
+            _selectionButton.interactable = false;
+        }
+
+        public void EnableInteraction()
+        {
+            _selectionButton.interactable = true;
+        }
     }
 }
